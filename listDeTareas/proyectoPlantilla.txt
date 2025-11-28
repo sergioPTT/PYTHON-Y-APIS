@@ -1,0 +1,84 @@
+Criterios de calificación
+Funcionalidad
+Verificar que todos los endpoints están implementados correctamente y funcionan como se espera.
+Peso: 70
+Manejo de errores
+Comprobar que el manejo de errores es adecuado. En particular, algunos endpoints deben devolver un error 404 si la tarea no existe.
+Peso: 20
+Estructura y organización del código
+Evaluar si el código está bien estructurado y organizado. Verificar que las funciones están claramente definidas y se siguen buenas prácticas de Python.
+Peso: 10
+Descripción
+Ponte bajo la piel de un auténtico desarrollador y crea una API simple mediante FastAPI.
+
+
+Recursos descargables
+
+Necesitas descargar los siguientes recursos para realizar el ejercicio:
+
+PROYECTO PLANTILLA:
+
+from fastapi import FastAPI, HTTPException
+from typing import List
+
+app = FastAPI()
+
+# Lista de tareas simulada
+tasks = [
+    {"id": 1, "description": "Hacer la compra", "completed": False},
+    {"id": 2, "description": "Pagar las facturas", "completed": False},
+]
+
+# Endpoint para obtener todas las tareas
+@app.get("/tasks/")
+def read_tasks():
+    // ...
+
+# Endpoint para obtener una tarea por su ID
+@app.get("/tasks/{task_id}")
+def read_task(task_id: int):
+    // ...
+
+# Endpoint para crear una nueva tarea
+@app.post("/tasks/")
+def create_task(description: str):
+    // ...
+
+# Endpoint para marcar una tarea como completada
+@app.put("/tasks/{task_id}")
+def update_task(task_id: int, completed: bool):
+    // ...
+
+# Endpoint para eliminar una tarea
+@app.delete("/tasks/{task_id}")
+def delete_task(task_id: int):
+    // ...
+
+
+
+Requisitos
+En este ejercicio, buscamos que des tus primeros pasos como desarrollador. Crearás una API simple utilizando FastAPI en Python para gestionar una lista de tareas pendientes (retador, ¿cierto?). Pues bien, la API permitirá realizar operaciones básicas como las siguientes:
+
+obtener todas las tareas;
+obtener una tarea por su ID;
+crear una nueva tarea;
+marcar una tarea como completada;
+y eliminar una tarea.
+Instrucciones
+La lista de tareas pendientes puede simularse como una lista de diccionarios que representan las tareas, en la que cada tarea cuente con id, descripción y un boolean que indique si está completada. Por ejemplo:
+
+# Lista de tareas simulada
+tasks = [
+    {"id": 1, "description": "Hacer la compra", "completed": False},
+    {"id": 2, "description": "Pagar las facturas", "completed": False},
+]
+Formato: debes realizar el ejercicio en un único archivo main.py.
+
+Mediante FastAPI, deberás preparar los siguientes métodos:
+
+GET /tasks/: este endpoint permitirá obtener todas las tareas pendientes y devolverá tasks.
+GET /tasks/{task_id}: este endpoint permitirá obtener una tarea específica por su ID, o devolverá un error 404 si la tarea no existe.
+POST /tasks/: este endpoint permitirá crear una nueva tarea, pasándole una descripción para la nueva tarea, y la agregará a la lista de tareas pendientes. Devolverá la nueva tarea creada.
+PUT /tasks/{task_id}: este endpoint permitirá marcar una tarea ya existente como completada. Devolverá los detalles de la tarea actualizada o devolverá un error 404 si la tarea no existe.
+DELETE /tasks/{task_id}: este endpoint permitirá eliminar una tarea existente. Devolverá los detalles de la tarea eliminada o un error 404 si la tarea no existe.
+Puedes lanzar la aplicación desde una terminal, ejecutando uvicorn main:app --reload(ignora la ventana emergente de 'Open in Browser').

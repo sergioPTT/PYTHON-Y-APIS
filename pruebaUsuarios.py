@@ -36,7 +36,7 @@ def getUsuarios():
 @app.get("/usuarios/{usuario_id}")
 def getUsuarioID(usuario_id: int):
     if usuario_id not in db:
-       
+
             raise HTTPException(status_code=404,detail="Usuario no encontrado")
     else:
         return db[usuario_id]
