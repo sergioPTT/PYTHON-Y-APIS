@@ -39,5 +39,4 @@ def getUsuarioID(usuario_id: int):
        
             raise HTTPException(status_code=404,detail="Usuario no encontrado")
     else:
-        return
-            db[usuario_id]
+        return db[usuario_id]
